@@ -1,0 +1,23 @@
+Instruction:
+
+Make sure you enter the tomcat user and not the jenkins one
+The URL for tomcat has http not https (this gave me an error)
+eg http/localhost:8090/ as exposed tomcat on 8090
+
+How to change the port no
+C:\Program Files\Apache Software Foundation\Tomcat 9.0\conf\server.xml
+<Connector port="8090" protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="8443" />
+
+C:\Program Files\Apache Software Foundation\Tomcat 9.0\conf\tomcat-users.xml
+
+<tomcat-users xmlns="http://tomcat.apache.org/xml"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://tomcat.apache.org/xml tomcat-users.xsd"
+              version="1.0">
+<user username="admin" password="admin" roles="manager-script" />
+<user username="deployer" password="deployer" roles="manager-script" />
+</tomcat-users>
+
+
